@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="text-here" id="input">
+        <button id="btn">Click</button>
+    </div>
+    <div id="display"></div>
+
+
+
+
+    <style>
+        body{
+            background-color: rgba(136, 145, 121, 0.925);
+            color: #F5F5F5;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        input{
+            padding: 10px 40px;
+        }
+        button{
+            /* background-color: transparent; */
+            background-color: #4a4949;
+            color: #F5F5F5;
+            padding:10px 30px;
+            transition: 0.2s;
+            margin: 5px;
+        }
+        button:hover{
+            background-color: antiquewhite;
+            /* background-color: transparent; */
+            color: black;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        p{
+            /* background-color: #3c3b3b; */
+            background-color: rgba(136, 145, 121, 0.925);
+            color: black;
+            padding: 5px 0px;
+            border-radius: 5px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        span{
+            padding-left: 20px;
+            padding-right: 120px;
+            margin-right: 50px;
+            width: 300px;
+        }
+        .editt{
+            background-color: transparent;
+            padding: 0px;
+            border: none;
+            color: black;
+            /* margin-left: 5px; */
+        }
+        .editt:hover{
+            background-color: transparent;
+            color: rgb(244, 237, 237);
+        }
+    </style>
+
+<script>
+    btn.addEventListener("click",function(e){
+    let values = input.value 
+        if(values===""){
+            alert("EMPTY!!!")
+        }else{
+        const nwPara=document.createElement("p")
+
+        let addvalue = document.createElement("span")
+            addvalue.innerHTML = values
+            nwPara.appendChild(addvalue)
+
+        let toEdit =document.createElement("button")
+            toEdit.classList.add("editt")
+            toEdit.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>'
+            nwPara.appendChild(toEdit)
+
+        let toDelete =document.createElement("button")
+            toDelete.classList.add("editt")
+            toDelete.innerHTML = '<i class="fa-solid fa-trash"></i>'
+            nwPara.appendChild(toDelete)
+
+
+            toEdit.addEventListener("click",()=>{
+                    let val=prompt("Edit please")
+                    console.log(val)
+                    addvalue.innerHTML=val
+                })
+
+                toDelete.addEventListener("click",()=>{
+                    nwPara.remove()
+                })
+
+       display.appendChild(nwPara)
+    }
+})
+</script>
+
+</body>
+</html>
